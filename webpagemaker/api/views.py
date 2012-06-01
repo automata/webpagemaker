@@ -49,6 +49,7 @@ def get_sanitizer_config(request):
 
 def get_page(request, page_id):
     page = get_object_or_404(models.Page, short_url_id=page_id)
+    # TODO::CACHE we should cache the sanitized page, in case a page gets popular.
     response = HttpResponse(sanitize.sanitize(page.html))
     if page.original_url:
         response['X-Original-URL'] = page.original_url

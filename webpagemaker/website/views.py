@@ -1,5 +1,6 @@
 import jingo
 
+# TODO all of these should just be django generic direct_to_template views https://docs.djangoproject.com/en/1.4/topics/generic-views/
 def home(request):
     return jingo.render(request, "website/home.html")
 
